@@ -8,7 +8,6 @@ var ArticleSchema = {
     trim: true,
     required: 'Title required'
   },
-
   summary: {
     type: String,
     default: '',
@@ -35,6 +34,7 @@ var ArticleSchema = {
     type: Date,
     default: Date.now
   }
+  
 }
 
 var Article = mongoose.model('Article', ArticleSchema, 'articles');
