@@ -36,6 +36,11 @@ module.exports.all = function(req, res) {
 
 module.exports.create = function(req, res) {
   var article = new Article(req.body);
+  if(!article.rating || article.rating < 0 || article.rating > 5){
+    return res.status(400).send({
+  				message: "Rating should be between 0 and 5"
+  			});
+  }
   article.postedBy = req.user;
   article.save(function(err, data) {
     if (err) {
