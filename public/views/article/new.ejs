@@ -7,6 +7,10 @@
   <input type="text" id="author"/><br/><br/>
   <p>Link:</p>
   <input type="text" id="link"/><br/><br/>
+  <p>Image Link:</p>
+  <input type="text" id="imagelink"/><br/><br/>
+  <p>Rating:</p>
+  <input type="number" id="rating" min="0" max="5"/><br/><br/>
   <p>Summary</p>
   <textarea id="summary">Add summary </textarea><br/><br/>
   <button id="submit">Submit</button>
@@ -20,7 +24,8 @@
       newArticle.author = $('#author').val();
       newArticle.link = $('#link').val();
       newArticle.summary = $('#summary').val();
-
+      newArticle.rating = $('#rating').val();
+      newArticle.imagelink = $('#imagelink').val();
       $.ajax({
               method: "POST",
               url: "/api/articles",
